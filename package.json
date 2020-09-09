@@ -1,0 +1,23 @@
+{
+  "name": "employeetracker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PeteLow-13/EmployeeTracker.git"
+  },
+  "author": "Pete Low",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PeteLow-13/EmployeeTracker/issues"
+  },
+  "homepage": "https://github.com/PeteLow-13/EmployeeTracker#readme",
+  "dependencies": {
+    "mysql": "^2.18.1"
+  }
+}
