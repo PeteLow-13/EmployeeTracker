@@ -1,6 +1,6 @@
 const mySql = require('mySql');
 const inquirer = require('inquirer');
-
+const consoleTable =require('console.table');
 const PORT = 3306;
 
 // var server = ;
@@ -17,7 +17,7 @@ var connection = mySql.createConnection({
 connection.connect(function(err){
     if (err) throw err;
     console.log('connected as id ' + connection.threadId);
-    startQuestion();
+    // startQuestion();
 });
 
 function startQuestion(){
@@ -37,6 +37,18 @@ function startQuestion(){
                 break;
             case 'add role':
                 addRole();
+                break;
+            case 'view employees by department':
+                viewEmployeesByDepartment();
+                break;
+            case 'view employees by manager':
+                viewEmlpoyeesByManager();
+                break;
+            case 'update employee role':
+                updateEmployeeRole();
+                break;
+            case 'update employee manager':
+                updateEmployeeManager();
                 break;
             case 'exit':
                 connection.end();
@@ -120,14 +132,14 @@ function nextAction(){
         }
         
     ]).then(function(answer){
-        if (answer == 'y'){
+        if (answer.whatNext == 'y'){
             startQuestion();
         }else{
             connection.end();
         }
     })
 }
-
+startQuestion();
 function queryEmployee(){
     var query = connection.query('SELECT * FROM ___ WHERE ___ ?'
     ,function(err,res){
@@ -148,7 +160,3 @@ function deleteEmployee(){
     })
 };
 
-
-// server.listen(PORT, function() {
-//     console.log('Server listening')
-// });
