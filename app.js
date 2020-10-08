@@ -20,19 +20,10 @@ function startQuestion(){
         name: 'action',
         type: 'list',
         message: 'What would you like to do?',
-        choices: ['add department','add role','add employee','view departments','view roles','view employees','update employee role','delete department','delete role','delete employee','exit']
+        choices: ['view departments','view roles','view employees','add department','add role','add employee','update employee role','delete department','delete role','delete employee','exit']
     })
     .then(function(answer){
         switch (answer.action){
-            case 'add department':
-                addDepartment();
-                break;
-            case 'add role':
-                addRole();
-                break;
-            case 'add employee':
-                addEmployee();
-                break;
             case 'view departments':
                 viewDepartments();
                 break;
@@ -42,6 +33,15 @@ function startQuestion(){
             case 'view employees':
                 viewEmployees();
                 break; 
+            case 'add department':
+                addDepartment();
+                break;
+            case 'add role':
+                addRole();
+                break;
+            case 'add employee':
+                addEmployee();
+                break;
             case 'find employee by department':
                 findEmployeeByDepartment();
                 break;
@@ -154,14 +154,14 @@ async function addEmployee(){
         },
         {
             name: 'role',
-            type: 'rawlist',
-            message: 'What is employee role id?',
+            type: 'list',
+            message: 'What is employee role?',
             choices: roles
         },
         {
             name: 'managerId',
-            type: 'rawlist',
-            message: 'What is employees manager id?',
+            type: 'list',
+            message: 'Who is employees manager?',
             choices: managers
         }
     ]).then(function(answer){
